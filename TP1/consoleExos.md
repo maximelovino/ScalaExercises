@@ -1,0 +1,5 @@
+- Quelle est la date actuelle ? Quelle est l'heure actuelle ?
+	- java.time.LocalDate.now
+	- java.time.LocalTime.now
+- Soit un carré inscrit dans un cercle. Si l'aire du carré est égale à 75 cm^2, quel est le périmètre du cercle ?
+	- math.sqrt(75) * math.Pi

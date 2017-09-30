@@ -1,0 +1,42 @@
+#+TITLE:     Découverte de Scala
+#+AUTHOR:    jean-luc.falcone@unige.ch
+#+EMAIL:     jean-luc.falcone@unige.ch
+#+DATE:      Série 1 - Septembre 2017
+#+LANGUAGE:  fr
+#+OPTIONS:   H:2 toc:nil
+#+STARTUP: showall
+#+LaTeX_HEADER: \usepackage{charter}
+
+* Installer SBT
+
+SBT est le système de construction de projet le plus utilisé pour
+Scala. SBT est préinstallé sur les PCs étudiants mais vous pouvez
+facilement l'installer sur votre machine:
+
+
+- *GNU/Linux*: [[http://www.scala-sbt.org/0.13/docs/Installing-sbt-on-Linux.html]]
+- *MacOS*: [[http://www.scala-sbt.org/0.13/docs/Installing-sbt-on-Mac.html]]
+- *MS WIndows*: [[http://www.scala-sbt.org/0.13/docs/Installing-sbt-on-Windows.html]]
+
+* Découvrir SBT
+
+1. aller dans le répertoire =TPs=
+2. inspecter les fichiers présents
+3. taper =sbt=, suivre les éventuelles instructions
+4. taper =compile=
+5. taper =run=
+6. taper =console=
+
+
+* Console Scala
+
+Utiliser la console pour répondre aux questions suivantes:
+
+- Soit un carré inscrit dans un cercle. Si l'aire du carré est égale à
+  75 cm^2, quel est le périmètre du cercle ?
+
+- Quelle est la date actuelle ? Quelle est l'heure actuelle ?
+
+* Algorithme d'Euclide
+
+- Implémenter l’algorithme d'Euclide en Scala: http://fr.wikipedia.org/wiki/Algorithme_d%27Euclide
