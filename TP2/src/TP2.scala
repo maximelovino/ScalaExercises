@@ -2,7 +2,7 @@ package ch.unige.hepia.tp
 
 object TP2 extends App {
 	println("Hello world");
-	
+
 	println("FRACTION TIME")
 	val a = new Fraction(1,2)
 	val b = new Fraction(1,3)
@@ -16,11 +16,16 @@ object TP2 extends App {
 	println(d.simplify)
 	println(a == d)
 	println(a == b)
+	val doubleValue = 1.toDouble / 3.toDouble
+	val tolerance = 1E-6
+	println(s"Getting value of $doubleValue with tolerance $tolerance")
+	val frac = Fraction.fromDouble(doubleValue)
+	println(frac)
 
 	println("STACK TIME")
 	var myStack = new Stack[Int]
 
- 	for (i <- 0 to 10){
+	for (i <- 0 to 10){
 		myStack.push(i)
 	}
 
@@ -29,6 +34,10 @@ object TP2 extends App {
 	println(myStack)
 
 	while(!myStack.isEmpty){
-		println(myStack.pop())
+		val value = myStack.pop() match {
+			case Some(i) => i
+			case _ => throw new Exception("Stack is empty")
+		}
+		println(value)
 	}
 }

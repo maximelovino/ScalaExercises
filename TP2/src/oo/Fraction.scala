@@ -45,6 +45,25 @@ class Fraction(val num: Int, val den: Int) extends scala.math.Ordered [ Fraction
 			case _ => false
 		}
 	}
+}
 
-	//TODO From double
+object Fraction {
+	def fromDouble(value: Double): Fraction = {
+		if (value < 0){
+			new Fraction(-1,1) * Fraction.fromDouble(value)
+		}else{
+			var num = 1
+			var den = 1
+
+			while(num.toDouble / den.toDouble != value){
+				if (num.toDouble / den.toDouble < value) {
+					num += 1
+					den -= 1
+				}else {
+					den += 1
+				}
+			}
+			new Fraction(num,den)
+		}
+	}
 }

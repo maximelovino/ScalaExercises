@@ -11,12 +11,25 @@ class Stack[A]() {
 	def size(): Int = this.list.size()
 
 	//what if empty?
-	def pop(): A = this.list.remove(this.list.size()-1)
+	def pop(): Option[A] = {
+		if (this.isEmpty) {
+			None
+		}else{
+			Some(this.list.remove(this.list.size()-1))
+		}
+	}
 
 	def swap() = {
 		if (this.size() >= 2) {
-			val last: A = this.pop()
-			val beforeLast: A = this.pop()
+			val last: A = this.pop() match {
+				case Some(i) => i
+				case _ => throw new Exception("Can't swap");
+			}
+			val beforeLast: A = this.pop() match {
+				case Some(i) => i
+				case _ => throw new Exception("Can't swap")
+			}
+
 			this.push(last)
 			this.push(beforeLast)
 		}
