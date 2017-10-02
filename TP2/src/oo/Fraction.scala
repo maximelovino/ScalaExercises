@@ -48,22 +48,17 @@ class Fraction(val num: Int, val den: Int) extends scala.math.Ordered [ Fraction
 }
 
 object Fraction {
-	def fromDouble(value: Double): Fraction = {
+	def fromDouble(value: Double, decimalCount: Int): Fraction = {
 		if (value < 0){
-			new Fraction(-1,1) * Fraction.fromDouble(value)
+			new Fraction(-1,1) * Fraction.fromDouble(value, decimalCount)
 		}else{
-			var num = 1
-			var den = 1
+			val intPart = math.floor(value).toInt
+			val intFrac = new Fraction(intPart, 1);
 
-			while(num.toDouble / den.toDouble != value){
-				if (num.toDouble / den.toDouble < value) {
-					num += 1
-					den -= 1
-				}else {
-					den += 1
-				}
-			}
-			new Fraction(num,den)
+			val decimalPart = value-intPart
+			val decimalPartInt = (decimalPart * (math.pow(10,decimalCount).toInt)).toInt
+			val decimalFrac = new Fraction(decimalPartInt, math.pow(10,decimalCount).toInt)
+			(intFrac + decimalFrac).simplify()
 		}
 	}
 }

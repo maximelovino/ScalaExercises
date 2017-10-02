@@ -18,9 +18,9 @@ object TP2 extends App {
 	println(a == d)
 	println(a == b)
 	val doubleValue = 1.toDouble / 3.toDouble
-	val tolerance = 1E-6
-	println(s"Getting value of $doubleValue with tolerance $tolerance")
-	val frac = Fraction.fromDouble(doubleValue)
+	val tolerance = 4
+	println(s"Getting value of $doubleValue with tolerance of $tolerance digits")
+	val frac = Fraction.fromDouble(doubleValue, tolerance);
 	println(frac)
 	println("Trying sort")
 	scala.util.Sorting.quickSort(arrayOfFrac)
