@@ -1,37 +1,33 @@
 package ch.unige.hepia.tp
 import java.util.ArrayList
 
-class Stack[A]() {
+class Stack[A] {
 	private val list: ArrayList[A] = new ArrayList()
 
 	def push(value: A) = this.list.add(value)
 
-	def isEmpty(): Boolean = this.list.isEmpty()
+	def isEmpty(): Boolean = size == 0
 
 	def size(): Int = this.list.size()
 
-	//what if empty?
 	def pop(): Option[A] = {
 		if (this.isEmpty) {
 			None
 		}else{
-			Some(this.list.remove(this.list.size()-1))
+			Some(this.list.remove(size-1))
 		}
 	}
 
 	def swap() = {
-		if (this.size() >= 2) {
-			val last: A = this.pop() match {
-				case Some(i) => i
-				case _ => throw new Exception("Can't swap");
-			}
-			val beforeLast: A = this.pop() match {
-				case Some(i) => i
-				case _ => throw new Exception("Can't swap")
-			}
-
-			this.push(last)
-			this.push(beforeLast)
+		/*
+		Another method without any test or individual match, this will unwrap the optional, and then only if both are ok, will do the pushes
+		*/
+		for {
+			last <- pop()
+			beforeLast <- pop()
+		} {
+			push(last)
+			push(beforeLast)
 		}
 	}
 

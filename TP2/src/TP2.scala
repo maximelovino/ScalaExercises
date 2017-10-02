@@ -34,10 +34,11 @@ object TP2 extends App {
 	println(myStack)
 
 	while(!myStack.isEmpty){
-		val value = myStack.pop() match {
-			case Some(i) => i
-			case _ => throw new Exception("Stack is empty")
+		//unwrap, if successful, print
+		for {
+			value <- myStack.pop
+		} {
+			println(value)
 		}
-		println(value)
 	}
 }
