@@ -37,7 +37,7 @@ class Fraction(val num: Int, val den: Int) extends scala.math.Ordered [ Fraction
 
 	def toDouble: Double = num.toDouble / den.toDouble
 
-	def compare(that: Fraction): Int = (this - that).toDouble.toInt;
+	override def compare(that: Fraction): Int = if ((this - that).toDouble < 0) -1 else 1;
 
 	override def equals(that: Any): Boolean = {
 		that match{

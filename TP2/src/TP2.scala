@@ -7,6 +7,7 @@ object TP2 extends App {
 	val a = new Fraction(1,2)
 	val b = new Fraction(1,3)
 	val c = a / b
+	val arrayOfFrac = Array(a,b,c)
 	println(c)
 	println(c.toDouble)
 	val sum = a + b
@@ -21,6 +22,11 @@ object TP2 extends App {
 	println(s"Getting value of $doubleValue with tolerance $tolerance")
 	val frac = Fraction.fromDouble(doubleValue)
 	println(frac)
+	println("Trying sort")
+	scala.util.Sorting.quickSort(arrayOfFrac)
+	for (x <- arrayOfFrac){
+		println(x)
+	}
 
 	println("STACK TIME")
 	var myStack = new Stack[Int]
