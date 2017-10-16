@@ -67,7 +67,20 @@ object Serie3 {
    *    - head
    *    - tail
    */
-  def and( xs: List[Boolean] ): Boolean = ???
+  def and( xs: List[Boolean] ): Boolean = {
+	  def andRec(subList: List[Boolean], currentValue: Boolean): Boolean = {
+		  if (!subList.isEmpty){
+			  var valueToPass = currentValue
+			  if (subList.head == false){
+				  valueToPass = false
+			  }
+			  andRec(subList.tail, valueToPass)
+		  }else{
+			  currentValue
+		  }
+	  }
+	  andRec(xs, true)
+  }
 
   /*
    *  Applatit une liste. Votre implémentation
@@ -77,7 +90,13 @@ object Serie3 {
    *   - tail
    *   - ++
    */
-  def flat[A]( las: List[List[A]] ): List[A] = ???
+  def flat[A]( las: List[List[A]] ): List[A] = {
+	  def flatRec(currentList: List[A], subList: List[List[A]]): List[A] = {
+		  if (!subList.isEmpty) flatRec(currentList ++ subList.head,subList.tail)
+		  else currentList
+	  }
+	  flatRec(List[A](),las)
+  }
 
   /*
    *  Retourne vrai si la liste a un nombre pair d'éléments
@@ -85,6 +104,8 @@ object Serie3 {
    *   - size
    *   - isEmpty
    */
-  def even[A]( as: List[A] ): Boolean = ???
+  def even[A]( as: List[A] ): Boolean = {
+	  len(as) % 2 == 0
+  }
 
 }

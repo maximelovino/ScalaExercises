@@ -20,7 +20,7 @@ class FPIntroSuite extends FunSuite {
   }
 
   test( "List flatten" ) {
-    assert( flat(las1) == 0 )
+    //assert( flat(las1) == 0 )
     assert( flat(las1) == Nil )
     assert( flat(las2) == is )
   }
@@ -44,4 +44,8 @@ class FPIntroSuite extends FunSuite {
     assert( even( las1 ) == true )
   }
 
+  test("List and"){
+	  assert(and(bs1) == false)
+	  assert(and(bs2) == true)
+  }
 }
