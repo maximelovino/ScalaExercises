@@ -1,0 +1,21 @@
+#+TITLE:     Intro Programmation Fonctionnelle
+#+AUTHOR:    jean-luc.falcone@unige.ch
+#+EMAIL:     jean-luc.falcone@unige.ch
+#+DATE:      Série 3 - Octobre 2017
+#+LANGUAGE:  fr
+#+OPTIONS:   H:2 toc:nil
+#+STARTUP: showall
+#+LaTeX_HEADER: \usepackage{charter}
+
+* Manipulation de listes
+
+- Le fichier =src/fp/3.fp.scala= contient des signatures de fonctions
+  qu'il faudra implémenter en respectant strictement les commentaires
+
+- Le fichier =test/3.fpTest.scala= contient des tests qui utilisent
+  les fonctions à implémenter. Les tests vous aident également à comprendre
+  les consignes car les exemples testés peuvent être vu comme les
+  exemples des spécifications
+
+- A l'aide de SBT vous pouvez exécuter les tests grâce à la commande
+  ... =test=. 
