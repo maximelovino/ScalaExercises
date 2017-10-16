@@ -68,18 +68,18 @@ object Serie3 {
    *    - tail
    */
   def and( xs: List[Boolean] ): Boolean = {
-	  def andRec(subList: List[Boolean], currentValue: Boolean): Boolean = {
+	  def andRec(subList: List[Boolean]): Boolean = {
 		  if (!subList.isEmpty){
-			  var valueToPass = currentValue
 			  if (subList.head == false){
-				  valueToPass = false
+				  false
+			  }else{
+				  andRec(subList.tail)
 			  }
-			  andRec(subList.tail, valueToPass)
 		  }else{
-			  currentValue
+			  true
 		  }
 	  }
-	  andRec(xs, true)
+	  andRec(xs)
   }
 
   /*
