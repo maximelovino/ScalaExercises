@@ -1,4 +1,5 @@
 package ch.hepia.tpscala.fp
+
 /*
 
  * Implémenter les fonctions suivantes en suivant les commentaires.
@@ -14,15 +15,16 @@ object Serie3 {
    * Donne la longueur d'une liste. Votre implémentation ne peut
    *  utiliser aucune fonction de List excepté isEmpty()
    */
-   def len[A]( as: List[A] ): Int = {
-	 def lenRec(currentVal: Int, subList: List[A]): Int = {
-		 if (!subList.isEmpty)
-		   lenRec(currentVal + 1, subList.tail)
-		 else
-		   currentVal
-	 }
-	 lenRec(0,as)
-   }
+  def len[A](as: List[A]): Int = {
+    def lenRec(currentVal: Int, subList: List[A]): Int = {
+      if (!subList.isEmpty)
+        lenRec(currentVal + 1, subList.tail)
+      else
+        currentVal
+    }
+
+    lenRec(0, as)
+  }
 
   /*
    * Inverse une liste. Votre implémentation ne peut
@@ -32,14 +34,15 @@ object Serie3 {
    *    - head
    *    - tail
    */
-  def rev[A]( as: List[A] ): List[A] = {
-	  def revRec(currentNewList: List[A], subList: List[A]): List[A] = {
-		  if (!subList.isEmpty)
-		  	revRec(subList.head :: currentNewList, subList.tail)
-		  else
-		  	currentNewList
-	  }
-	  revRec(List(), as)
+  def rev[A](as: List[A]): List[A] = {
+    def revRec(currentNewList: List[A], subList: List[A]): List[A] = {
+      if (!subList.isEmpty)
+        revRec(subList.head :: currentNewList, subList.tail)
+      else
+        currentNewList
+    }
+
+    revRec(List(), as)
   }
 
   /*
@@ -49,14 +52,15 @@ object Serie3 {
    *    - head
    *    - tail
    */
-  def sum( xs: List[Int] ): Int = {
-	  def sumRec(currentSum: Int, subList: List[Int]): Int = {
-		  if (!subList.isEmpty)
-		  	sumRec(currentSum + subList.head, subList.tail)
-		  else
-		  	currentSum
-	  }
-	  sumRec(0,xs)
+  def sum(xs: List[Int]): Int = {
+    def sumRec(currentSum: Int, subList: List[Int]): Int = {
+      if (!subList.isEmpty)
+        sumRec(currentSum + subList.head, subList.tail)
+      else
+        currentSum
+    }
+
+    sumRec(0, xs)
   }
 
   /*
@@ -67,19 +71,20 @@ object Serie3 {
    *    - head
    *    - tail
    */
-  def and( xs: List[Boolean] ): Boolean = {
-	  def andRec(subList: List[Boolean]): Boolean = {
-		  if (!subList.isEmpty){
-			  if (subList.head == false){
-				  false
-			  }else{
-				  andRec(subList.tail)
-			  }
-		  }else{
-			  true
-		  }
-	  }
-	  andRec(xs)
+  def and(xs: List[Boolean]): Boolean = {
+    def andRec(subList: List[Boolean]): Boolean = {
+      if (!subList.isEmpty) {
+        if (!subList.head) {
+          false
+        } else {
+          andRec(subList.tail)
+        }
+      } else {
+        true
+      }
+    }
+
+    andRec(xs)
   }
 
   /*
@@ -90,12 +95,13 @@ object Serie3 {
    *   - tail
    *   - ++
    */
-  def flat[A]( las: List[List[A]] ): List[A] = {
-	  def flatRec(currentList: List[A], subList: List[List[A]]): List[A] = {
-		  if (!subList.isEmpty) flatRec(currentList ++ subList.head,subList.tail)
-		  else currentList
-	  }
-	  flatRec(List[A](),las)
+  def flat[A](las: List[List[A]]): List[A] = {
+    def flatRec(currentList: List[A], subList: List[List[A]]): List[A] = {
+      if (!subList.isEmpty) flatRec(currentList ++ subList.head, subList.tail)
+      else currentList
+    }
+
+    flatRec(List[A](), las)
   }
 
   /*
@@ -104,8 +110,8 @@ object Serie3 {
    *   - size
    *   - isEmpty
    */
-  def even[A]( as: List[A] ): Boolean = {
-	  len(as) % 2 == 0
+  def even[A](as: List[A]): Boolean = {
+    len(as) % 2 == 0
   }
 
 }
