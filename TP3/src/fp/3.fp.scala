@@ -16,11 +16,9 @@ object Serie3 {
    *  utiliser aucune fonction de List excepté isEmpty()
    */
   def len[A](as: List[A]): Int = {
-    def lenRec(currentVal: Int, subList: List[A]): Int = {
-      if (!subList.isEmpty)
-        lenRec(currentVal + 1, subList.tail)
-      else
-        currentVal
+    def lenRec(currentVal: Int, subList: List[A]): Int = subList match {
+      case Nil => currentVal //here it's empty
+      case _ :: b => lenRec(currentVal + 1, b) //here with _ we ignore the first element and after the :: we have the tail then
     }
 
     lenRec(0, as)
@@ -35,11 +33,9 @@ object Serie3 {
    *    - tail
    */
   def rev[A](as: List[A]): List[A] = {
-    def revRec(currentNewList: List[A], subList: List[A]): List[A] = {
-      if (!subList.isEmpty)
-        revRec(subList.head :: currentNewList, subList.tail)
-      else
-        currentNewList
+    def revRec(currentNewList: List[A], subList: List[A]): List[A] = subList match {
+      case Nil => currentNewList
+      case a :: b => revRec(a :: currentNewList, b)
     }
 
     revRec(List(), as)
@@ -53,11 +49,9 @@ object Serie3 {
    *    - tail
    */
   def sum(xs: List[Int]): Int = {
-    def sumRec(currentSum: Int, subList: List[Int]): Int = {
-      if (!subList.isEmpty)
-        sumRec(currentSum + subList.head, subList.tail)
-      else
-        currentSum
+    def sumRec(currentSum: Int, subList: List[Int]): Int = subList match {
+      case Nil => currentSum
+      case a :: b => sumRec(currentSum + a, b)
     }
 
     sumRec(0, xs)
@@ -72,16 +66,9 @@ object Serie3 {
    *    - tail
    */
   def and(xs: List[Boolean]): Boolean = {
-    def andRec(subList: List[Boolean]): Boolean = {
-      if (!subList.isEmpty) {
-        if (!subList.head) {
-          false
-        } else {
-          andRec(subList.tail)
-        }
-      } else {
-        true
-      }
+    def andRec(subList: List[Boolean]): Boolean = subList match {
+      case Nil => true
+      case a :: b => if(!a) false else andRec(b)
     }
 
     andRec(xs)
@@ -96,9 +83,9 @@ object Serie3 {
    *   - ++
    */
   def flat[A](las: List[List[A]]): List[A] = {
-    def flatRec(currentList: List[A], subList: List[List[A]]): List[A] = {
-      if (!subList.isEmpty) flatRec(currentList ++ subList.head, subList.tail)
-      else currentList
+    def flatRec(currentList: List[A], subList: List[List[A]]): List[A] = subList match {
+      case Nil => currentList
+      case a :: b => flatRec(currentList ++ a, b)
     }
 
     flatRec(List[A](), las)
