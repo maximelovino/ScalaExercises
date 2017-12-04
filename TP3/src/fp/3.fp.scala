@@ -68,7 +68,7 @@ object Serie3 {
   def and(xs: List[Boolean]): Boolean = {
     def andRec(subList: List[Boolean]): Boolean = subList match {
       case Nil => true
-      case a :: b => if(!a) false else andRec(b)
+      case a :: b => if (!a) false else andRec(b)
     }
 
     andRec(xs)
